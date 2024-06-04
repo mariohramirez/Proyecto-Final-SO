@@ -1,4 +1,10 @@
 import React, { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import '.';
+import NavBar from "./component/NavBar/NavBar";
+import Masthead from "./component/Masthead/Masthead";
+import PortfolioSection from "./component/Portfolio/PortfolioSection";
+import Footer from "./component/Footer/Footer";
 
 function App() {
   const [emulationStatus, setEmulationStatus] = useState("");
@@ -31,9 +37,13 @@ function App() {
   };
 
   return (
+    <>
     <div>
       <header>
-        <h1>Interfaz de Usuario</h1>
+        <NavBar />
+        <Masthead />
+        <PortfolioSection />
+        <h1 className="text-black">Interfaz de Usuario</h1>
         <label>
           Seleccionar arquitectura:
           <select value={selectedArch} onChange={(e) => setSelectedArch(e.target.value)}>
@@ -45,9 +55,10 @@ function App() {
         </label>
         <button onClick={handleEmulate}>Emular</button>
         <button onClick={handleStop}>Detener</button>
-        <p>{emulationStatus}</p>
       </header>
     </div>
+    <Footer />
+    </>
   );
 }
 
